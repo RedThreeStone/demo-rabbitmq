@@ -1,7 +1,7 @@
 package com.itlei.demorabbitmq.adapter;
 
-import it.lei.boot.data.domain.User;
-import it.lei.boot.mongodb.Test;
+import com.itlei.demorabbitmq.User;
+
 
 import java.util.Map;
 
@@ -22,7 +22,5 @@ public class MessageDelegate {
     public void objHandler(User user){
         System.out.println(user);
     }
-    public void objHandler(Test test){
-        System.out.println(test);
-    }
+
 }

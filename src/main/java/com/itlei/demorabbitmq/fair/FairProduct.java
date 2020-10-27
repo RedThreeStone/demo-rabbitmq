@@ -1,7 +1,7 @@
 package com.itlei.demorabbitmq.fair;
 
 import com.alibaba.fastjson.JSONObject;
-import it.lei.boot.data.domain.User;
+import com.itlei.demorabbitmq.User;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

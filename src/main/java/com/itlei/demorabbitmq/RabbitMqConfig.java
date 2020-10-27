@@ -1,9 +1,9 @@
 package com.itlei.demorabbitmq;
 
-import it.lei.boot.rabbitMq.adapter.MessageDelegate;
-import it.lei.boot.rabbitMq.adapter.convert.ImageMessageConverter;
-import it.lei.boot.rabbitMq.adapter.convert.PDFMessageConverter;
-import it.lei.boot.rabbitMq.adapter.convert.TextMessageConverter;
+import com.itlei.demorabbitmq.adapter.MessageDelegate;
+import com.itlei.demorabbitmq.adapter.convert.ImageMessageConverter;
+import com.itlei.demorabbitmq.adapter.convert.PDFMessageConverter;
+import com.itlei.demorabbitmq.adapter.convert.TextMessageConverter;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;

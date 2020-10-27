@@ -1,12 +1,13 @@
-package com.itlei.demorabbitmq.fair;
+package com.itlei.demorabbitmq.bootapi;
 
-import it.lei.boot.BaseTest;
+import com.itlei.demorabbitmq.DemoRabbitmqApplicationTests;
+import com.itlei.demorabbitmq.fair.FairProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class Test extends BaseTest {
+public class FairTest extends DemoRabbitmqApplicationTests {
     @Autowired
     FairProduct fairProduct;
-    @org.junit.Test
+
     public  void  simpleTest(){
         //fairProduct.send();
        // fairProduct.jsonSend();

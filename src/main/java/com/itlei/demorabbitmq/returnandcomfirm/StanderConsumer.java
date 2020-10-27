@@ -1,7 +1,7 @@
 package com.itlei.demorabbitmq.returnandcomfirm;
 
+import com.itlei.demorabbitmq.User;
 import com.rabbitmq.client.Channel;
-import it.lei.boot.data.domain.User;
 import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
@@ -41,13 +41,21 @@ public class StanderConsumer {
      * spring.rabbitmq.config.user.queue.ignoreDeclarationExceptions =true
      *
      */
-    @RabbitListener(bindings = @QueueBinding(exchange = @Exchange(value = "${spring.rabbitmq.config.user.exchange.name}",
-            durable = "${spring.rabbitmq.config.user.exchange.durable}", autoDelete = "${spring.rabbitmq.config.user.exchange.autoDelete}",
-            type = "${spring.rabbitmq.config.user.exchange.type}",internal = "${spring.rabbitmq.config.user.exchange.internal}"),
-            value = @Queue(value = "${spring.rabbitmq.config.user.queue.name}",durable = "${spring.rabbitmq.config.user.queue.durable}",
-                    exclusive = "${spring.rabbitmq.config.user.queue.exclusive}",autoDelete = "${spring.rabbitmq.config.user.queue.autoDelete}",
+    @RabbitListener(bindings = @QueueBinding(
+            exchange = @Exchange(
+                    value = "${spring.rabbitmq.config.user.exchange.name}",
+                    durable = "${spring.rabbitmq.config.user.exchange.durable}",
+                    autoDelete = "${spring.rabbitmq.config.user.exchange.autoDelete}",
+                    type = "${spring.rabbitmq.config.user.exchange.type}",
+                    internal = "${spring.rabbitmq.config.user.exchange.internal}"),
+            value = @Queue(
+                    value = "${spring.rabbitmq.config.user.queue.name}",
+                    durable = "${spring.rabbitmq.config.user.queue.durable}",
+                    exclusive = "${spring.rabbitmq.config.user.queue.exclusive}",
+                    autoDelete = "${spring.rabbitmq.config.user.queue.autoDelete}",
                     ignoreDeclarationExceptions = "${spring.rabbitmq.config.user.queue.ignoreDeclarationExceptions}"),
-            key = "${spring.rabbitmq.config.user.key}"))
+            key = "${spring.rabbitmq.config.user.key}")
+    )
     @RabbitHandler
     public void  onUserHandler(@Payload User user, @Headers Map<String,Object> properties, Channel channel) throws IOException {
         System.out.println(user);

@@ -1,20 +1,22 @@
-package com.itlei.demorabbitmq.returnandcomfirm;
+package com.itlei.demorabbitmq.bootapi;
 
-import it.lei.boot.BaseTest;
-import it.lei.boot.data.domain.User;
-import org.junit.Test;
+
+import com.itlei.demorabbitmq.DemoRabbitmqApplicationTests;
+import com.itlei.demorabbitmq.User;
+import com.itlei.demorabbitmq.returnandcomfirm.StanderPublish;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class SendTest extends BaseTest {
+public class SendTest extends DemoRabbitmqApplicationTests {
     @Autowired
-    private  StanderPublish standerPublish;
+    private StanderPublish standerPublish;
     @Test
     public void  callBackTest(){
        // standerPublish.sendMessage("6666",null);
         User user = new User();
         user.setUserSex("男");
         user.setUsername("小明");
-        user.setSsmUserId(100);
+
         standerPublish.sendMessage(user,null);
         while (true){
 
